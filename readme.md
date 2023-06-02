@@ -1,11 +1,11 @@
-# Module Federation with PowerApp component framework
+# Proof of Concept of Module Federation with PowerApp Component Framework
 
  *TL;DR
-PCF control that renders a remote (federated) React component*
+PoC of a PCF control that renders a remote (federated) React component*
 
 ## Disclaimer
 
-This is a getting started playground for experimentation with module federation in PowerApps compoment framework. This is **not** production code. Security has not been a consideration in this project but rather exploration of the art of possible.
+This is a **proof of concept**, getting started playground for experimentation with module federation in PowerApps compoment framework. This is **not** production code. Security has not been a consideration in this project but rather exploration of the art of possible.
 Improvement ideas welcome!
 
 ## Credits
@@ -38,12 +38,12 @@ TypeScript file that defines a PowerApps Component Framework (PCF) control. The 
 
 ### pcf
 
-The init method is called when the control is initialized and sets the `_container` property to the container element that the control will render into. The `updateView` method is called when the control needs to update its view and uses the `createRoot` function from the `react-dom/client` package to create a root element for the React component. 
+The `init` method is called when the control is initialized and sets the `_container` property to the container element that the control will render into. The `updateView` method is called when the control needs to update its view and uses the `createRoot` function from the `react-dom/client` package to create a root element for the React component. 
 
 
 ### ReactHostComponent
 
-The component has a state object that contains a Component property. In the `componentDidMount` lifecycle method, the `loadRemoteModule` function (from the @angular-architects/module-federation package) is used to load a remote module (Header) from a federated plugin (nav). 
+The component has a state object that contains a `Component` property. In the `componentDidMount` lifecycle method, the `loadRemoteModule` function (from the @angular-architects/module-federation package) is used to load a remote module (Header) from a federated plugin (nav). 
 
 ```
  loadRemoteModule({
@@ -52,7 +52,7 @@ The component has a state object that contains a Component property. In the `com
             exposedModule: './Header',
 ```
 
-Once loaded, the default export of the module is assigned to the Component property of the component's state object. This causes the component to re-render with the loaded component. `React.Suspense` component to handle the loading state
+Once loaded, the default export of the module is assigned to the `Component` property of the component's state object. This causes the component to re-render with the loaded component. `React.Suspense` component to handle the loading state
 
 
 ## Resources
